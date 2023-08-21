@@ -1,14 +1,6 @@
 # Turborepo starter
 
-This is an official starter Turborepo.
-
-## Using this example
-
-Run the following command:
-
-```sh
-npx create-turbo@latest
-```
+This is a template to build monorepo program in typescript edited from official starter Turborepo.
 
 ## What's inside?
 
@@ -16,8 +8,8 @@ This Turborepo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
+- `docs`: ~~a [Next.js](https://nextjs.org/) app~~ a static website doc powered by [Eleventy](https://www.11ty.dev/)
+- `web`: a [Next.js](https://nextjs.org/) app
 - `ui`: a stub React component library shared by both `web` and `docs` applications
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
@@ -32,12 +24,28 @@ This Turborepo has some additional tools already setup for you:
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
 
+And some other essential tools added to enforce code quality:
+
+- [Husky](https://typicode.github.io/husky/#/) for git hooks
+- [lint-staged](https://github.com/okonet/lint-staged) for linting staged files
+- [commitlint](https://commitlint.js.org/#/) for commit message linting
+- [commitizen](https://github.com/commitizen/cz-cli) for commit message formatting
+
+### Commit
+
+To commit, it is recommended to use
+
+```
+pnpm run commit
+```
+
+instead of `git commit`. This will use `commitizen` which will guide you to write a conventional commit message.
+
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 pnpm build
 ```
 
@@ -46,27 +54,15 @@ pnpm build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 pnpm dev
 ```
 
-### Remote Caching
+### Generate Doc
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+To generate the 11ty-powered doc, run the following command:
 
 ```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+pnpm run doc
 ```
 
 ## Useful Links
