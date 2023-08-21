@@ -34,3 +34,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# vscode
+.vscode/*
+
+# 11ty
+_site/

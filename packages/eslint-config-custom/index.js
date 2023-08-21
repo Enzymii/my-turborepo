@@ -1,11 +1,36 @@
+/* eslint-env node */
+const indentRule = {
+  SwitchCase: 1,
+  ignoredNodes: [
+    'PropertyDefinition',
+    'TSUnionType',
+    'TSTypeParameterInstantiation',
+    'TSIntersectionType',
+  ],
+};
+
 module.exports = {
-  extends: ["next", "turbo", "prettier"],
-  rules: {
-    "@next/next/no-html-link-for-pages": "off",
+  env: {
+    browser: true,
+    es2021: true,
   },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'next',
+    'turbo',
+    'prettier',
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    babelOptions: {
-      presets: [require.resolve("next/babel")],
-    },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  rules: {
+    indent: ['error', 2, indentRule],
+    '@typescript-eslint/indent': ['error', 2, indentRule],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
   },
 };
